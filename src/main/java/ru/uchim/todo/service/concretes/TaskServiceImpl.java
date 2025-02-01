@@ -7,16 +7,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.uchim.todo.entity.TaskEntity;
 import ru.uchim.todo.mapper.TaskMapper;
-import ru.uchim.todo.mapper.UserMapper;
 import ru.uchim.todo.model.request.TaskRequest;
 import ru.uchim.todo.model.response.TaskResponse;
 import ru.uchim.todo.repository.TaskRepository;
 import ru.uchim.todo.service.abstracts.TaskService;
-import ru.uchim.todo.unitl.Result;
+import ru.uchim.todo.model.result.Result;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

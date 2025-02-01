@@ -1,5 +1,6 @@
 package ru.uchim.todo.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ return userService.getUserById(id);
 }
 
 @PostMapping("save_user")
-public void saveUser(@RequestBody UserRequest userRequest) {
+public void saveUser(@RequestBody @Valid UserRequest userRequest) {
  userService.saveUser(userRequest);
 }
 

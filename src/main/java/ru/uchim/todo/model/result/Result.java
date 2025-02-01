@@ -1,6 +1,5 @@
-package ru.uchim.todo.unitl;
+package ru.uchim.todo.model.result;
 
-import jakarta.annotation.security.DenyAll;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

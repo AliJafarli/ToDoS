@@ -1,19 +1,13 @@
 package ru.uchim.todo.controller;
 
-import jakarta.persistence.GeneratedValue;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.uchim.todo.entity.TaskEntity;
-import ru.uchim.todo.mapper.TaskMapper;
 import ru.uchim.todo.model.request.TaskRequest;
 import ru.uchim.todo.model.response.TaskResponse;
 import ru.uchim.todo.service.abstracts.TaskService;
 import ru.uchim.todo.service.concretes.TaskServiceImpl;
-import ru.uchim.todo.unitl.Result;
-
-
-import java.util.List;
+import ru.uchim.todo.model.result.Result;
 
 @RestController
 @RequiredArgsConstructor

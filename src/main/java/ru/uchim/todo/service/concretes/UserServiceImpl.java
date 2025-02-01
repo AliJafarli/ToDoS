@@ -2,9 +2,13 @@ package ru.uchim.todo.service.concretes;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ru.uchim.todo.entity.UserEntity;
+import ru.uchim.todo.exceptions.BaseException;
+
 import ru.uchim.todo.mapper.UserMapper;
+import ru.uchim.todo.model.enums.StatusCode;
 import ru.uchim.todo.model.request.UserRequest;
 import ru.uchim.todo.model.response.UserResponse;
 import ru.uchim.todo.repository.UserRepository;
@@ -25,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse getUserById(Long id) {
-        return UserMapper.mapToUserResponse(this.userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found")));
+        return UserMapper.mapToUserResponse(this.userRepository.findById(id).orElseThrow(() -> new BaseException(HttpStatus.NOT_FOUND, StatusCode.USER_NOT_FOUND)));
     }
 
     @Override

@@ -2,9 +2,7 @@ package ru.uchim.todo.service.abstracts;
 
 import ru.uchim.todo.model.request.TaskRequest;
 import ru.uchim.todo.model.response.TaskResponse;
-import ru.uchim.todo.unitl.Result;
-
-import java.util.List;
+import ru.uchim.todo.model.result.Result;
 
 public interface TaskService {
 
