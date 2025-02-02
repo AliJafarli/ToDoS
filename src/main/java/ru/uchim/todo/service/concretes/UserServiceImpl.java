@@ -1,14 +1,13 @@
 package ru.uchim.todo.service.concretes;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ru.uchim.todo.entity.UserEntity;
 import ru.uchim.todo.exceptions.BaseException;
 
 import ru.uchim.todo.mapper.UserMapper;
-import ru.uchim.todo.model.enums.StatusCode;
+import ru.uchim.todo.exceptions.constants.StatusCode;
 import ru.uchim.todo.model.request.UserRequest;
 import ru.uchim.todo.model.response.UserResponse;
 import ru.uchim.todo.repository.UserRepository;

@@ -2,7 +2,7 @@ package ru.uchim.todo.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import ru.uchim.todo.model.enums.StatusCode;
+import ru.uchim.todo.exceptions.constants.StatusCode;
 
 @Getter
 public class BaseException extends RuntimeException{
@@ -15,4 +15,5 @@ public class BaseException extends RuntimeException{
         this.httpStatus = httpStatus;
         this.status = status;
     }
+
 }
