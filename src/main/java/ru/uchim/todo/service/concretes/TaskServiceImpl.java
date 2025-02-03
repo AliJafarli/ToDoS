@@ -4,8 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ru.uchim.todo.entity.TaskEntity;
+import ru.uchim.todo.exceptions.BaseException;
+import ru.uchim.todo.exceptions.constants.StatusCode;
 import ru.uchim.todo.mapper.TaskMapper;
 import ru.uchim.todo.model.request.TaskRequest;
 import ru.uchim.todo.model.response.TaskResponse;
@@ -34,7 +37,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskResponse findTaskById(Long id) {
-        return TaskMapper.toTaskResponse(taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found")));
+        return TaskMapper.toTaskResponse(taskRepository.findById(id).orElseThrow(() -> new BaseException(HttpStatus.NOT_FOUND, StatusCode.TASK_NOT_FOUND)));
     }
 
     @Override
@@ -53,10 +56,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void deleteTaskById(Long id) {
-        if (taskRepository.existsById(id)) {
-            taskRepository.deleteById(id);
-        } else {
-            throw new RuntimeException("Task not found");
+        if(taskRepository.deleteByTaskId(id) == 0){
+            throw new BaseException(HttpStatus.NOT_FOUND, StatusCode.TASK_NOT_FOUND);
         }
     }
 }

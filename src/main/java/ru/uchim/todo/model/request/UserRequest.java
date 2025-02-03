@@ -28,7 +28,6 @@ public class UserRequest {
     @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "password not match with pattern")
     private String password;
 
-    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
-    List<TaskEntity> taskEntityList;
+
 }
 

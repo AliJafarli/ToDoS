@@ -6,5 +6,6 @@ import ru.uchim.todo.entity.TaskEntity;
 import ru.uchim.todo.model.response.TaskResponse;
 
 public interface TaskRepository extends JpaRepository<TaskEntity, Long> {
+    Integer deleteByTaskId(long id);
 
 }

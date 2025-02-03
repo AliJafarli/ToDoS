@@ -6,4 +6,6 @@ import ru.uchim.todo.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
+    boolean existsByUsername(String username);
+
 }

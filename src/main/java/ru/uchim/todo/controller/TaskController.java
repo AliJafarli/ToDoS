@@ -1,5 +1,6 @@
 package ru.uchim.todo.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,18 +30,18 @@ public TaskResponse findTaskById(@PathVariable Long id) {
 }
 
 @PutMapping("/{id}")
-public TaskResponse updateTaskById(@PathVariable Long id, @RequestBody TaskRequest taskRequest) {
+public TaskResponse updateTaskById(@Valid @PathVariable Long id, @RequestBody TaskRequest taskRequest) {
     return taskService.updateTask(id, taskRequest);
 }
 
 @PostMapping("create_task")
-public TaskResponse createTask(@RequestBody TaskRequest taskRequest) {
+public TaskResponse createTask(@Valid @RequestBody TaskRequest taskRequest) {
     return taskService.createTask(taskRequest);
 }
 
 @DeleteMapping("/{id}")
 @ResponseStatus(HttpStatus.NO_CONTENT)
-public void deleteTaskById(@RequestParam Long id) {
+public void deleteTaskById(@PathVariable Long id) {
     taskService.deleteTaskById(id);
 }
 

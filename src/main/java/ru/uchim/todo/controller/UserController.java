@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserResponse updateUser(@PathVariable UserRequest userRequest) {
+    public UserResponse updateUser(@Valid @PathVariable UserRequest userRequest) {
         return userService.updateUser(userRequest);
     }
 
