@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse saveUser(UserRequest userRequest) {
-        if(userRepository.existsByUsername(userRequest.getUsername())) {
+        if (userRepository.existsByUsername(userRequest.getUsername())) {
             throw new BaseException(HttpStatus.BAD_REQUEST, StatusCode.USER_ALREADY_EXIST);
         }
 
